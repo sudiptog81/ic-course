@@ -4,10 +4,13 @@ import unittest
 def reverse(list_of_chars):
 
     # Reverse the input list of chars in place
-    for i in range(len(list_of_chars) // 2):
-        list_of_chars[i], list_of_chars[len(list_of_chars) - 1 - i] = list_of_chars[len(list_of_chars) - 1 - i], list_of_chars[i]
-    
-    return list_of_chars
+    left = 0
+    right = len(list_of_chars) - 1
+
+    while left < right:
+        list_of_chars[left], list_of_chars[right] = list_of_chars[right], list_of_chars[left]
+        left += 1
+        right -= 1        
 
 
 

@@ -1,10 +1,22 @@
 import unittest
 
+def reverse_chars(list_of_chars, left, right):
+    while left <= right:
+        list_of_chars[left], list_of_chars[right] = list_of_chars[right], list_of_chars[left]
+        left += 1
+        right -= 1
 
 def reverse_words(message):
 
     # Decode the message by reversing the words
+    reverse_chars(message, 0, len(message) - 1)
     
+    cur_start = 0
+
+    for i in range(0, len(message) + 1):
+        if (i == len(message)) or (message[i] == ' '):
+            reverse_chars(message, cur_start, i - 1)
+            cur_start = i + 1
 
 
 
